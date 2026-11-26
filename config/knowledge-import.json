@@ -1,0 +1,5 @@
+{
+  "max_pdf_mb": 512,
+  "max_other_mb": 25,
+  "max_pdf_pages": 1000
+}

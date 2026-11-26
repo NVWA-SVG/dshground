@@ -1,0 +1,38 @@
+{
+  "raw_text": "模拟反馈：学生讨论较热烈，但课后对应任务的独立完成情况仍有困难。以下人数仅用于程序验证。",
+  "observed_at": "2026-11-05T16:00:00+08:00",
+  "participation": [
+    {
+      "activity_id": "A4",
+      "participating": 24,
+      "eligible": 30,
+      "basis": "observed",
+      "notes": "模拟去重人数"
+    }
+  ],
+  "timings": [
+    {
+      "activity_id": "A3",
+      "actual_minutes": 9,
+      "basis": "observed"
+    }
+  ],
+  "assessments": [
+    {
+      "question_id": "Q2",
+      "met_criteria": 12,
+      "total": 30,
+      "independent": true,
+      "timing": "after_class",
+      "days_after": 0,
+      "basis": "observed",
+      "errors": [
+        "模拟问题：复述不准确，请求不够具体"
+      ]
+    }
+  ],
+  "observations": [],
+  "teacher_keep": [
+    "保留核心目标和总课时"
+  ]
+}

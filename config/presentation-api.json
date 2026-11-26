@@ -1,0 +1,12 @@
+{
+  "provider": "native",
+  "gamma_engine": "classic",
+  "quality": "standard",
+  "theme_id": "",
+  "image_model": "",
+  "style": "适合本年级的清晰教学插画，统一配色，图文结合，留出提问和独立思考空间。",
+  "custom_base_url": "",
+  "proxy_url": "http://127.0.0.1:33210",
+  "auto_generate": true,
+  "asset_mode": "local"
+}

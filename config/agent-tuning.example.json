@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "stages": {
+    "design": {
+      "temperature": 0.3,
+      "max_tokens": 32768,
+      "input_budget_tokens": 64000
+    },
+    "revision": {
+      "temperature": 0.2,
+      "max_tokens": 32768,
+      "input_budget_tokens": 96000
+    },
+    "visual": {
+      "temperature": 0.5,
+      "max_tokens": 16000,
+      "input_budget_tokens": 32000
+    },
+    "vision": {
+      "temperature": 0.1,
+      "top_p": 1,
+      "max_tokens": 1500
+    }
+  },
+  "context": {
+    "retrieval_chars": 16000,
+    "source_chars": 18000,
+    "history_records": 8,
+    "assets_per_page": 4,
+    "max_assets": 32
+  },
+  "max_validation_attempts": 3
+}

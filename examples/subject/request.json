@@ -1,0 +1,15 @@
+{
+  "title": "认识几分之一",
+  "course_type": "subject",
+  "grade": "三年级",
+  "subject": "数学",
+  "duration_minutes": 40,
+  "class_label": "演示班级（模拟）",
+  "class_size": 30,
+  "prior_knowledge": "模拟条件：已接触平均分",
+  "difficulties": null,
+  "constraints": [
+    "保留核心目标与40分钟总课时"
+  ],
+  "source_ids": []
+}

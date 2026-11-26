@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+data/
+deliverables/
+.env
+harness-home/
+.test-runs/
+demo/
+config/runtime.json
+
+runtime/

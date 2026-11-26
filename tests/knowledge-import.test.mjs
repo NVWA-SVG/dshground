@@ -1,0 +1,53 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdir,mkdtemp,cp,readFile,readdir} from 'node:fs/promises';
+import path from 'node:path';
+import http from 'node:http';
+import {createHash} from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import {apply,bridge} from '../plugins/teacher-workbench/index.mjs';
+
+test('raw HTTP upload imports a PDF above 25MB, protects writes, creates isolated units and cleans temporary files',async t=>{
+  const project=path.resolve('.'),root=await mkdtemp(path.resolve('.test-runs/book-http-'));
+  await mkdir(path.join(root,'config'));await mkdir(path.join(root,'tools'));
+  await cp(path.join(project,'backend'),path.join(root,'backend'),{recursive:true});
+  await cp(path.join(project,'tools/dsh_bridge.py'),path.join(root,'tools/dsh_bridge.py'));
+  await cp(path.join(project,'config/runtime.json'),path.join(root,'config/runtime.json'));
+  const runtime=JSON.parse(await readFile(path.join(root,'config/runtime.json'),'utf8'));
+  const fixture=path.join(root,'book.pdf');
+  const generated=spawnSync(runtime.python_executable,['-X','utf8','tests/book_fixture.py',fixture,'26'],{encoding:'utf8',windowsHide:true});
+  assert.equal(generated.status,0,generated.stderr);
+  let handler;const server=http.createServer((req,res)=>handler(req,res));
+  await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  t.after(()=>new Promise(r=>{server.closeAllConnections();server.close(r);}));
+  const origin='http://127.0.0.1:'+server.address().port,previous=process.env.TEACHER_PREP_ROOT;
+  process.env.TEACHER_PREP_ROOT=root;t.after(()=>{if(previous===undefined)delete process.env.TEACHER_PREP_ROOT;else process.env.TEACHER_PREP_ROOT=previous;});
+  const ctx={webServer:{getOrigin:()=>origin,register:route=>{handler=route.handler;return()=>{};}},credentials:{describe:async()=>({configured:true})},connection:{authenticatedUrl:()=>origin},llm:{},agents:{},effect:f=>f()};
+  await apply(ctx);
+  const boot=await(await fetch(origin+'/teacher/api/bootstrap')).json();
+  const body=await readFile(fixture),headers={'Content-Type':'application/octet-stream','X-Teacher-Token':boot.token};
+  const route=origin+'/teacher/api/knowledge/upload-file?'+new URLSearchParams({name:'整册.pdf',title:'三年级整册',subject:'数学',grade:'三年级',key:'upload_book'});
+  assert.equal((await fetch(route,{method:'POST',body:Buffer.from('x'),headers:{'Content-Type':'application/octet-stream'}})).status,403);
+  const response=await fetch(route,{method:'POST',headers,body});
+  const book=await response.json();assert.equal(response.status,200,JSON.stringify(book));
+  assert.equal(book.bytes,body.length);assert.ok(book.bytes>25*1024*1024);
+  assert.equal(book.sha256,createHash('sha256').update(body).digest('hex'));
+  const limits=await(await fetch(origin+'/teacher/api/knowledge/limits')).json();assert.equal(limits.max_pdf_mb,512);assert.equal(limits.max_other_mb,25);
+  const structure=await(await fetch(origin+'/teacher/api/knowledge/pdf?knowledge='+book.knowledge_id)).json();assert.equal(structure.suggested_ranges.length,4);
+  const index=await(await fetch(origin+'/teacher/api/knowledge/index?knowledge='+book.knowledge_id)).json();assert.equal(index.chapters.length,4);assert.equal(index.schema_version,2);
+  const chunkView=await(await fetch(origin+'/teacher/api/knowledge/chunks?knowledge='+book.knowledge_id+'&chapter='+index.chapters[0].id)).json();assert.ok(chunkView.chunks.length);assert.ok(chunkView.chunks.every(chunk=>chunk.chapter_id===index.chapters[0].id));
+  const progress=await(await fetch(origin+'/teacher/api/knowledge/import-status?key=upload_book')).json();assert.equal(progress.phase,'ready');
+  const post=payload=>fetch(origin+'/teacher/api/knowledge/unit',{method:'POST',headers:{'Content-Type':'application/json','X-Teacher-Token':boot.token},body:JSON.stringify(payload)});
+  const unitResponse=await post({id:book.knowledge_id,start_page:4,end_page:5,title:'第二单元',key:'unit_two'});
+  const unit=await unitResponse.json();assert.equal(unitResponse.status,200,JSON.stringify(unit));assert.equal(unit.pdf_pages,2);assert.equal(unit.source_book.start_page,4);
+  assert.equal(unit.storage_mode,'scope');assert.equal(unit.bytes,0);
+  assert.equal((await post({id:book.knowledge_id,start_page:9,end_page:3,title:'错误',key:'invalid'})).status,400);
+  const text=await bridge(root,'knowledge_text',{id:unit.knowledge_id});assert.ok(text.text.includes('SECOND_UNIT_ADDITION'));assert.ok(!text.text.includes('OTHER_UNIT_CONTENT'));
+  assert.equal((await fetch(route,{method:'POST',headers,body:Buffer.alloc(0)})).status,400);
+  // Reject from declared length before buffering the request into memory.
+  const rejected=await new Promise((resolve,reject)=>{
+    const request=http.request(route,{method:'POST',headers:{...headers,'Content-Length':513*1024*1024}},response=>{response.resume();response.on('end',()=>resolve(response.statusCode));});
+    request.on('error',reject);request.flushHeaders();
+  });assert.equal(rejected,413);
+  const inputs=await readdir(path.join(root,'inputs'));assert.ok(!inputs.some(name=>name.startsWith('upload_')||name.startsWith('unit_')));
+});

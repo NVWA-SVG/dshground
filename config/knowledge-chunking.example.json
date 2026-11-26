@@ -1,0 +1,6 @@
+{
+  "target_chars": 650,
+  "min_chars": 180,
+  "max_chars": 1200,
+  "atomic_max_chars": 2200
+}

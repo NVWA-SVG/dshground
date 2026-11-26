@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知衡 · 教师工作台</title><link rel="stylesheet" href="/teacher/style.css"><script defer src="/teacher/forms.js"></script><script defer src="/teacher/feedback.js"></script><script defer src="/teacher/app.js"></script><script defer src="/teacher/tuning.js"></script><script defer src="/teacher/knowledge.js"></script><script defer src="/teacher/vision-queue.js"></script><script defer src="/teacher/ppt.js"></script></head>
+<body>
+<aside class="rail"><div class="brand"><span class="mark">知</span><div><strong>知衡</strong><small>教师工作台</small></div></div><button id="newLesson" class="primary wide">＋ 新建备课</button><div class="rail-label">我的课程 <button id="refresh" class="icon" aria-label="刷新课程">↻</button></div><div id="categoryFilter" class="rail-filter"></div><nav id="lessons" aria-label="课程列表"></nav><div class="rail-foot"><button id="knowledgeBtn">▤ 知识库</button><button id="settingsBtn">⚙ 模型设置</button><a href="/teacher/console" target="_blank" rel="noopener">打开 DSH 控制台 ↗</a><span>本机课程 · 持续保存</span></div></aside>
+<main><header><div><div class="eyebrow">SILICONFLOW QWEN / 教学设计</div><h1 id="pageTitle">让备课与学情连起来</h1></div><span id="modelBadge" class="badge">正在连接本机</span></header><div id="notice" role="status" hidden></div><section id="tasks" aria-label="生成任务"></section><div id="content"></div></main>
+<dialog id="settingsDialog"><form id="settingsForm"><div class="dialog-head"><h2>模型设置</h2><button type="button" id="closeSettings" class="icon" aria-label="关闭设置">×</button></div><p>使用 SiliconFlow 的 Qwen 模型。密钥保存在本机 DSH 凭据库，页面只显示是否已配置。</p><label>API Key<input name="api_key" type="password" autocomplete="new-password" placeholder="填写新的 SiliconFlow 密钥；留空保留现有配置"></label><label>模型名称<input name="model" value="Qwen/Qwen3-30B-A3B-Instruct-2507" required><small>支持 Qwen/… 等完整模型名称。连接检查验证密钥与所选模型的可见性，不创建生成任务。</small></label><details id="apiPolicySettings"><summary>高级：API 请求节流</summary><p class="muted">按模型分别排队；备课、识图和生图使用同一套请求规则。结果不明的生成请求不自动重发。</p><div class="grid"><label>同一模型最大并发<input id="apiConcurrency" type="number" min="1" max="4" step="1" value="1" required></label><label>请求最小间隔 / 毫秒<input id="apiInterval" type="number" min="0" max="10000" step="1" value="1000" required></label><label>限流默认冷却 / 秒<input id="apiCooldown" type="number" min="1" max="300" step="1" value="60" required></label></div><small>供应商返回 Retry-After 时优先遵守。此处不会提高账号本身的额度或服务限额。</small></details><details id="tuningSettings"><summary>高级：生成参数与上下文</summary><div id="tuningFields"></div><p id="tuningStatus" role="status"></p></details><div id="connectionResult" role="status"></div><div class="actions"><button type="button" id="testConnection">检查连接</button><button class="primary" type="submit">保存设置</button></div></form></dialog>
+<dialog id="pptSettingsDialog"><form id="pptSettingsForm">
+<div class="dialog-head"><h2>课件外观与服务</h2><button type="button" id="closePptSettings" class="icon" aria-label="关闭课件设置">×</button></div>
+<p>设置一次，之后点击「创建课程并生成整套材料」，系统会自动完成教学课件与配套材料。</p>
+<label>课件视觉风格<textarea name="style" maxlength="1000" placeholder="例如：小学数学，浅色背景、清晰插画、对比与分步图示，留白充足"></textarea></label>
+<fieldset id="imageGenerationSettings"><legend>AI 插画与教材原图搭配</legend>
+<p class="muted">Agent 先规划页面布局，再按需选择教材原图或生成补充插画，同一页可同时使用。标题、正文与重要标签保持可编辑。</p>
+<label class="check"><input type="checkbox" name="image_enabled">允许按教学需要生成 AI 插画</label>
+<label>每课最多生成<input name="image_max_images" type="number" min="1" max="12" value="4"><small>按需使用，不要求每页生图；已生成图片会复用。按生图服务实际调用计费。</small></label>
+<details><summary>生图模型与 API 设置</summary>
+<label>生图服务<select name="image_provider"><option value="siliconflow">SiliconFlow · 沿用模型设置的密钥</option><option value="custom">兼容图片生成 API</option></select></label>
+<label>生图模型<input name="image_model_name" value="Qwen/Qwen-Image" required></label>
+<label>接口 Base URL<input name="image_base_url" type="url" value="https://api.siliconflow.cn/v1"><small>SiliconFlow 使用固定官方地址；选择兼容 API 后可更换地址。</small></label>
+<label>生图请求格式<select name="image_api_format"><option value="siliconflow">SiliconFlow 格式</option><option value="openai">OpenAI 兼容格式</option></select><small>接入其他生图服务时按其文档选择。OpenAI 格式发送 size、n；SiliconFlow 格式发送 image_size、步数。</small></label>
+<label>新密钥（选填）<input name="image_api_key" type="password" autocomplete="new-password" placeholder="SiliconFlow 默认沿用已有密钥；兼容服务需单独保存密钥"><small id="imageKeyStatus"></small></label>
+<label>图片尺寸<input name="image_size" value="1472x1140" required></label>
+<label>生图步数<input name="image_steps" type="number" min="1" max="100" value="50" required></label>
+<label>生图 HTTP 代理（选填）<input name="image_proxy_url" type="url" placeholder="http://127.0.0.1:7890"></label>
+<button type="button" id="testImageConnection">检查生图模型（不生图）</button><p id="imageConnectionResult" role="status"></p>
+</details></fieldset>
+<label>课件装配方式<select name="asset_mode"><option value="auto">自动 · 优先本地教材图文课件</option><option value="provider">使用所选整份 PPT 服务</option><option value="local">本地装配 · 教材原图与 AI 插画</option></select><small>本地装配可同时使用教材原图、AI 插画和原生图形。是否调用生图模型由上方开关控制。</small></label>
+<details id="pptServiceDetails"><summary>高级：课件 API 与连接设置</summary>
+<p class="muted">课件服务负责排版与配图，生成时会收到本课的课件文字和视觉要求。</p>
+<label>课件服务<select name="provider"><option value="native">本地生成 · 教材素材与可编辑图形</option><option value="gamma">Gamma · AI 配图课件</option><option value="custom">自定义 PPT 服务</option></select></label>
+<div id="pptCredentialFields"><label>服务 API Key<input name="api_key" type="password" autocomplete="new-password" placeholder="留空保留已配置密钥"><small id="pptKeyStatus">未配置</small></label></div>
+<div id="gammaOptions"><label>Gamma 生成模式<select name="gamma_engine"><option value="classic">Classic · 固定原文和分页</option><option value="agent">Gamma 5 · 自由视觉设计</option></select></label><label>Gamma 5 质量<select name="quality"><option value="lite">Lite</option><option value="standard">Standard</option><option value="max">Max</option></select></label><label>主题 ID（选填）<input name="theme_id" maxlength="128"></label><label>配图模型（选填）<input name="image_model" placeholder="留空由服务选择"></label></div>
+<div id="customOptions"><label>服务 Base URL<input name="custom_base_url" type="url" placeholder="https://your-ppt-service.example/v1"><small>通过课件适配器接入，协议见项目接口文档。</small></label></div>
+<div class="actions"><button type="button" id="testPptConnection">检查连接</button></div>
+</details><div id="pptConnectionResult" role="status"></div><div class="actions"><button class="primary" type="submit">保存课件设置</button></div>
+</form></dialog>
+<template id="pptProxyField"><label>HTTP代理地址（选填）<input name="proxy_url" type="url" placeholder="例如 http://127.0.0.1:7890"><small>用于PPT服务连接、生成、查询和下载。使用系统代理软件时填其HTTP或混合代理端口；不修改Windows全局代理。</small></label></template>
+<dialog id="lessonDialog"></dialog>
+<dialog id="knowledgeDialog"></dialog>
+<dialog id="visionDialog"></dialog>
+<dialog id="visionQueueDialog"></dialog>
+<dialog id="assetComposerDialog"></dialog>
+<dialog id="classDialog"></dialog>
+</body></html>

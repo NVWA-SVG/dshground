@@ -1,0 +1,453 @@
+{
+  "design": {
+    "title": "意见不同时怎样沟通",
+    "course_type": "theme",
+    "grade": "四年级",
+    "subject": "",
+    "duration_minutes": 40.0,
+    "goals": [
+      {
+        "id": "G1",
+        "description": "能在冲突情境中区分可观察的事实与个人感受"
+      },
+      {
+        "id": "G2",
+        "description": "能使用倾听复述和具体请求表达不同意见"
+      },
+      {
+        "id": "G3",
+        "description": "能提出兼顾双方需要的协商办法并说明理由"
+      }
+    ],
+    "knowledge_points": [
+      {
+        "id": "K1",
+        "title": "识别感受",
+        "description": "用具体词描述自己的感受，不替他人下结论",
+        "is_new": false,
+        "difficulty": "basic"
+      },
+      {
+        "id": "K2",
+        "title": "事实与评价",
+        "description": "说出具体发生的事，避免用总是或从来不概括他人",
+        "is_new": true,
+        "difficulty": "basic"
+      },
+      {
+        "id": "K3",
+        "title": "倾听与复述",
+        "description": "先复述对方的意思，再确认自己是否理解准确",
+        "is_new": true,
+        "difficulty": "intermediate"
+      },
+      {
+        "id": "K4",
+        "title": "提出具体请求",
+        "description": "将希望改变的行为说清楚，并邀请对方一起商量",
+        "is_new": true,
+        "difficulty": "intermediate"
+      }
+    ],
+    "activities": [
+      {
+        "id": "A1",
+        "title": "看见不同意见",
+        "kind": "introduction",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1"
+        ],
+        "introduces": [],
+        "duration_minutes": 5.0,
+        "thinking_minutes": 2.0,
+        "reasoning_steps": 1,
+        "instructions": "呈现两位同学都想先使用同一盒彩笔的情境，请学生描述看到的事情。"
+      },
+      {
+        "id": "A2",
+        "title": "分清事实和感受",
+        "kind": "explanation",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1",
+          "K2"
+        ],
+        "introduces": [
+          "K2"
+        ],
+        "duration_minutes": 6.0,
+        "thinking_minutes": 2.0,
+        "reasoning_steps": 2,
+        "instructions": "比较具体发生的事情和对人的评价，让学生改写一句带有总是的表达。"
+      },
+      {
+        "id": "A3",
+        "title": "先倾听再复述",
+        "kind": "explanation",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3"
+        ],
+        "introduces": [
+          "K3"
+        ],
+        "duration_minutes": 8.0,
+        "thinking_minutes": 3.0,
+        "reasoning_steps": 3,
+        "instructions": "教师示范先复述同伴的意思，再确认是否理解，不急于反驳。"
+      },
+      {
+        "id": "A4",
+        "title": "两人情境练习",
+        "kind": "discussion",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [
+          "K4"
+        ],
+        "duration_minutes": 12.0,
+        "thinking_minutes": 6.0,
+        "reasoning_steps": 3,
+        "instructions": "两人交换扮演角色，先说事实和感受，再复述并提出具体请求。"
+      },
+      {
+        "id": "A5",
+        "title": "选择与说明理由",
+        "kind": "assessment",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [],
+        "duration_minutes": 5.0,
+        "thinking_minutes": 4.0,
+        "reasoning_steps": 2,
+        "instructions": "围绕新的冲突情境独立提出办法，依据是否尊重双方和是否具体可行进行讨论。"
+      },
+      {
+        "id": "A6",
+        "title": "整理与行动约定",
+        "kind": "reflection",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [],
+        "duration_minutes": 4.0,
+        "thinking_minutes": 1.0,
+        "reasoning_steps": 1,
+        "instructions": "学生写下一项自己愿意尝试的沟通动作，约定后续分享尝试过程。"
+      }
+    ],
+    "slides": [
+      {
+        "id": "S01",
+        "activity_id": "A1",
+        "title": "两个人都想先用彩笔",
+        "points": [
+          "小安正在用彩笔，小林也想马上使用。",
+          "两人说话越来越急。",
+          "先描述发生的事，不急着评判谁。"
+        ],
+        "teacher_script": "请大家看这段情境：两位同学都想先使用同一盒彩笔。先不要急着给其中一位贴标签，请说出你看见或听见的事情。我们可以观察谁在使用、谁提出了请求，也可以注意他们说话的方式。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S02",
+        "activity_id": "A1",
+        "title": "不同意见可以被说清",
+        "points": [
+          "每个人可能有不同的需要。",
+          "先听见需要，再讨论办法。",
+          "不同意某个办法，不等于否定一个人。"
+        ],
+        "teacher_script": "同一件事里，每个人的需要可能不同。一位同学想完成眼前的画，另一位担心轮不到自己。我们今天练习的是把不同意见说清楚，让对方愿意听，并一起寻找可行的办法。请先猜想双方可能需要什么，再说明依据。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S03",
+        "activity_id": "A2",
+        "title": "说事实，不用总是概括",
+        "points": [
+          "事实：我刚才问了两次，还没有拿到彩笔。",
+          "评价：你总是只顾自己。",
+          "把能观察到的事情说具体。"
+        ],
+        "teacher_script": "请比较这两句话。第一句说的是刚才发生的具体事情，我们可以回到情境里核对。第二句用了总是，对整个人作了概括，容易让对方马上反驳。请尝试把一句责备的话改成描述具体事实。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "描述事实与感受",
+            "复述并确认",
+            "提出具体请求"
+          ]
+        }
+      },
+      {
+        "id": "S04",
+        "activity_id": "A2",
+        "title": "感受由自己表达",
+        "points": [
+          "我有些着急，因为担心来不及完成。",
+          "说自己的感受，不替对方判断动机。",
+          "事实和感受可以分开说。"
+        ],
+        "teacher_script": "表达感受时，可以说我有些着急，而不是认定你就是故意不借给我。我们了解自己的感受，却不一定知道对方的想法。请先说一件具体的事，再用一个合适的词表达自己的感受，同桌听一听有没有把猜测说成事实。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S05",
+        "activity_id": "A3",
+        "title": "先复述，再确认",
+        "points": [
+          "你的意思是，你还需要两分钟完成这一部分？",
+          "我理解得对吗？",
+          "确认以后再表达自己的需要。"
+        ],
+        "teacher_script": "老师先示范做一个倾听的人。我会先用自己的话复述对方的意思，再问我理解得对吗。复述不是赞同所有要求，而是先确认自己听懂了。请听的同学观察：有没有打断，有没有把对方的意思改成自己想听的意思。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S06",
+        "activity_id": "A3",
+        "title": "把请求说得具体",
+        "points": [
+          "能不能两分钟后轮到我？",
+          "我们可以先分开用几种颜色吗？",
+          "给对方回应和协商的机会。"
+        ],
+        "teacher_script": "请把你应该对我好一点换成一个具体请求。例如能不能两分钟后轮到我，或者我们能否先分开用几种颜色。请求要让对方知道可以做什么，也留出回应和商量的机会。请每组尝试说出两个不同办法。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "描述事实与感受",
+            "复述并确认",
+            "提出具体请求"
+          ]
+        }
+      },
+      {
+        "id": "S07",
+        "activity_id": "A4",
+        "title": "两人交换角色练习",
+        "points": [
+          "第一轮：说事实、感受和请求。",
+          "倾听者复述并确认。",
+          "第二轮交换角色，再寻找双方可接受的办法。"
+        ],
+        "teacher_script": "现在两人一组，第一轮由一人表达，另一人练习复述；完成后交换角色。表达时依次说具体事情、自己的感受和请求。请不要急着追求表演热闹，我们更关注每位同学是否都获得完整表达和倾听的机会。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S08",
+        "activity_id": "A4",
+        "title": "观察的是动作和理由",
+        "points": [
+          "先独立写一句复述，再请同伴确认。",
+          "将模糊要求改为具体可执行的请求。",
+          "核对办法怎样回应双方需要。"
+        ],
+        "teacher_script": "观察同学练习时，我们不评价谁是好孩子，而记录具体的沟通动作。例如有没有用具体事实开头，有没有确认对方的意思，提出的办法是否双方都能尝试。请用一句具体反馈帮助同伴改进。针对模拟反馈，先增加一次独立书面回应，避免只有个别同学替全组表达。教师展示一个复述遗漏对方需要的反例，再请学生给出具体修改。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S09",
+        "activity_id": "A5",
+        "title": "换一个情境独立想",
+        "points": [
+          "小组成员对展示顺序意见不同。",
+          "先写一个可以尝试的办法。",
+          "说明这个办法怎样照顾双方需要。"
+        ],
+        "teacher_script": "请换到一个新情境：小组成员对展示顺序有不同意见。先独立写一个办法，再说明它怎样回应双方的需要。没有唯一固定的句子，但办法需要具体可行，理由需要与情境有关。先完成自己的想法，再与同伴交流。",
+        "question_ids": [
+          "Q1"
+        ],
+        "visual": null
+      },
+      {
+        "id": "S10",
+        "activity_id": "A5",
+        "title": "比较方案，说明理由",
+        "points": [
+          "只让一方让步，可能留下什么问题？",
+          "能否提出一个双方都可以尝试的方案？",
+          "听到新的理由后，可以调整自己的办法。"
+        ],
+        "teacher_script": "我们比较两种方案时，不只看谁说得响亮，而要看是否听见双方的需要，能否实际执行。请说明某个方案可能遇到的困难，并邀请提出者作调整。听到新的理由后愿意修改，也是这节课要练习的能力。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S11",
+        "activity_id": "A6",
+        "title": "带走一个沟通动作",
+        "points": [
+          "描述具体事实。",
+          "复述确认意思。",
+          "表达请求，一起商量。"
+        ],
+        "teacher_script": "请回顾今天练习的三个动作，选一个自己最想继续尝试的动作写下来。你可以选择先描述事实，也可以选择先复述对方的意思。请说明准备在什么情境里尝试，不需要许下抽象而很难检查的保证。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "描述事实与感受",
+            "复述并确认",
+            "提出具体请求"
+          ]
+        }
+      },
+      {
+        "id": "S12",
+        "activity_id": "A6",
+        "title": "下次分享尝试的过程",
+        "points": [
+          "记录一次真实尝试，不写同学姓名。",
+          "说明你说了什么、对方怎样回应。",
+          "困难可以成为下一次练习的材料。"
+        ],
+        "teacher_script": "接下来几天，可以记录一次沟通尝试，只写必要情境，不记录同学姓名。请描述自己具体说了什么，对方怎样回应，哪里仍然有困难。我们下次用这些匿名经历继续讨论办法，而不是按一次表现给同学贴标签。",
+        "question_ids": [
+          "Q2",
+          "Q3"
+        ],
+        "visual": null
+      }
+    ],
+    "questions": [
+      {
+        "id": "Q1",
+        "activity_id": "A5",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1",
+          "K2"
+        ],
+        "prompt": "情境中一位同学说：你总是不让我用。请把这句话改成具体事实与自己的感受。",
+        "answer": "示例：我刚才询问后还没有轮到使用，我有些着急。合理的其他表达也可。",
+        "explanation": "核对是否说出可观察的事情及自己的感受，不要求背诵示例。",
+        "timing": "in_class",
+        "mode": "rubric",
+        "criteria": [
+          "描述具体事情",
+          "表达自己的感受而不推断对方动机"
+        ]
+      },
+      {
+        "id": "Q2",
+        "activity_id": "A6",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K3",
+          "K4"
+        ],
+        "prompt": "在展示顺序争议的新情境中，先准确复述一方需要，再提出具体请求并说明理由。",
+        "answer": "允许多种方案；复述要准确，请求要具体，并说明怎样回应双方需要。",
+        "explanation": "依据倾听与请求是否具体评议，不按是否使用某一句固定台词判断。",
+        "timing": "after_class",
+        "mode": "rubric",
+        "criteria": [
+          "复述并确认对方的意思",
+          "提出具体可行的请求",
+          "理由回应双方需要"
+        ]
+      },
+      {
+        "id": "Q3",
+        "activity_id": "A6",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K3",
+          "K4"
+        ],
+        "prompt": "隔几天记录一次匿名的沟通尝试，描述自己的表达、对方回应和准备调整的地方。",
+        "answer": "不设唯一答案，依据是否具体描述沟通动作和反思调整进行反馈。",
+        "explanation": "观察具体尝试的过程；未尝试或结果不理想都可如实记录。",
+        "timing": "delayed",
+        "mode": "rubric",
+        "criteria": [
+          "具体描述尝试",
+          "描述回应而不贴标签",
+          "提出下一步调整"
+        ]
+      }
+    ],
+    "board_design": "事实与感受 → 倾听复述 → 具体请求 → 协商办法",
+    "source_ids": [],
+    "context_notes": "工程示例，未与具体教材版本对齐；相关学情、教师选择及检测数据均为模拟，不代表真实课堂效果。"
+  },
+  "summary": "依据模拟反馈调整示例、独立检测和环节时间；这是工程演示，不代表真实教师决策。",
+  "change_links": [
+    {
+      "target": "activity:A4",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "activity:A5",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "question:Q2",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "slide:S08",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    }
+  ]
+}

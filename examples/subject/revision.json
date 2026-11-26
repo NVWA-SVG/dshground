@@ -1,0 +1,442 @@
+{
+  "design": {
+    "title": "认识几分之一",
+    "course_type": "subject",
+    "grade": "三年级",
+    "subject": "数学",
+    "duration_minutes": 40.0,
+    "goals": [
+      {
+        "id": "G1",
+        "description": "能识别平均分并说明每份同样大的依据"
+      },
+      {
+        "id": "G2",
+        "description": "能用几分之一表示一个整体平均分后的其中一份"
+      },
+      {
+        "id": "G3",
+        "description": "能说明分母表示平均分的份数，并辨析没有平均分的反例"
+      }
+    ],
+    "knowledge_points": [
+      {
+        "id": "K1",
+        "title": "平均分",
+        "description": "每份同样多或同样大",
+        "is_new": false,
+        "difficulty": "basic"
+      },
+      {
+        "id": "K2",
+        "title": "一个整体",
+        "description": "先明确被平均分的是哪一个整体",
+        "is_new": true,
+        "difficulty": "basic"
+      },
+      {
+        "id": "K3",
+        "title": "几分之一",
+        "description": "把整体平均分成几份，其中一份就是它的几分之一",
+        "is_new": true,
+        "difficulty": "intermediate"
+      },
+      {
+        "id": "K4",
+        "title": "分母的含义",
+        "description": "分母表示整体平均分的份数，不能只数看见的块数",
+        "is_new": true,
+        "difficulty": "intermediate"
+      }
+    ],
+    "activities": [
+      {
+        "id": "A1",
+        "title": "分一分的经验",
+        "kind": "introduction",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1"
+        ],
+        "introduces": [],
+        "duration_minutes": 5.0,
+        "thinking_minutes": 2.0,
+        "reasoning_steps": 1,
+        "instructions": "让学生用纸片演示两人分享，先说出怎样判断每份同样大。"
+      },
+      {
+        "id": "A2",
+        "title": "先确定一个整体",
+        "kind": "explanation",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1",
+          "K2"
+        ],
+        "introduces": [
+          "K2"
+        ],
+        "duration_minutes": 8.0,
+        "thinking_minutes": 2.0,
+        "reasoning_steps": 2,
+        "instructions": "展示同一个圆片的完整图和等分图，用手指圈出被分的整体。"
+      },
+      {
+        "id": "A3",
+        "title": "认识几分之一",
+        "kind": "explanation",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3"
+        ],
+        "introduces": [
+          "K3"
+        ],
+        "duration_minutes": 10.0,
+        "thinking_minutes": 3.0,
+        "reasoning_steps": 3,
+        "instructions": "把同一个整体平均分成四份，逐步说出其中一份的含义、读法与写法。"
+      },
+      {
+        "id": "A4",
+        "title": "用反例检查理解",
+        "kind": "practice",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [
+          "K4"
+        ],
+        "duration_minutes": 6.0,
+        "thinking_minutes": 6.0,
+        "reasoning_steps": 3,
+        "instructions": "比较平均分与不平均分的四块图，学生先独立判断，再解释理由。"
+      },
+      {
+        "id": "A5",
+        "title": "独立检测与讲评",
+        "kind": "assessment",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [],
+        "duration_minutes": 7.0,
+        "thinking_minutes": 4.0,
+        "reasoning_steps": 2,
+        "instructions": "使用 Q1 和 Q2 检查整体、等份与分母含义，对典型错误进行讲评。"
+      },
+      {
+        "id": "A6",
+        "title": "整理与课后跟进",
+        "kind": "reflection",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "introduces": [],
+        "duration_minutes": 4.0,
+        "thinking_minutes": 1.0,
+        "reasoning_steps": 1,
+        "instructions": "让学生完成一句话总结，布置课后检测，并说明后续将用新图进行复测。"
+      }
+    ],
+    "slides": [
+      {
+        "id": "S01",
+        "activity_id": "A1",
+        "title": "怎样分才公平",
+        "points": [
+          "把一张纸分给两个人。",
+          "每一份同样大，才能叫平均分。",
+          "先折一折，再用重合的方法检查。"
+        ],
+        "teacher_script": "同学们，今天我们从分享一张纸开始。请先想一想，如果两个人都希望分到同样大的纸，可以怎样做？请用折一折的方法试一试，再将两份叠在一起检查。我们关注的是每一份是否同样大，而不是有没有分成两块。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S02",
+        "activity_id": "A1",
+        "title": "说明你的判断",
+        "points": [
+          "这两份能完全重合吗？",
+          "说一说判断平均分的依据。",
+          "块数相同，不一定每份同样大。"
+        ],
+        "teacher_script": "请先独立判断，然后和同桌交流理由。发言时请说出你看见的依据，比如边能对齐、面积能够重合。只说看起来差不多还不够，我们可以通过折叠进一步检查。对于意见不同的图，我们一起回到每份是否同样大这个条件。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S03",
+        "activity_id": "A2",
+        "title": "先找到一个整体",
+        "points": [
+          "这张完整的圆片是一个整体。",
+          "接下来的每一份，都来自这个整体。",
+          "先指整体，再指其中的一份。"
+        ],
+        "teacher_script": "请大家先用手指沿着完整圆片的边缘画一圈。我们把这张完整的圆片看作一个整体。后面说它的几分之一时，必须先知道它指的是哪一个整体。请同桌互相指一指，不要只指分出来的小块。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "找到一个整体",
+            "确认平均分",
+            "解释其中一份"
+          ]
+        }
+      },
+      {
+        "id": "S04",
+        "activity_id": "A2",
+        "title": "整体变了，表达要说清",
+        "points": [
+          "说明你分的是哪一张纸或哪一个图形。",
+          "讨论时把整体和其中一份同时指出来。",
+          "不用孤立的小块直接判断几分之一。"
+        ],
+        "teacher_script": "这里有两张大小不同的纸。我们分别把它们看作一个整体，观察其中一份。今天先不急着比较小块的大小，而要把分的是哪个整体说清楚。请完整表达：把哪一个整体平均分成几份，指的是其中哪一份。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S05",
+        "activity_id": "A3",
+        "title": "把四份中的一份说清楚",
+        "points": [
+          "把同一个整体平均分成四份。",
+          "其中一份是它的四分之一，写作 1/4。",
+          "四分之一离不开平均分这个条件。"
+        ],
+        "teacher_script": "现在请看同一个圆片被平均分成了四份。老师只取出其中的一份，这一份就是这个圆片的四分之一，写作一条分数线，上面是1，下面是4。请先用自己的话说完整，再读一读四分之一。我们不能漏掉平均分这个条件。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S06",
+        "activity_id": "A3",
+        "title": "数字分别告诉我们什么",
+        "points": [
+          "对比平均分的四份与大小不等的四块。",
+          "只有平均分，才能用几分之一表示其中一份。",
+          "独立说明分母表示什么，再与同桌核对。"
+        ],
+        "teacher_script": "请先不要背口诀，而是指着图解释。下面的4告诉我们，这个整体平均分成了四份；上面的1表示我们说的是其中的一份。请同桌轮流说明两个数字的意思，听的一方检查对方有没有说出整体和平均分。针对反馈中的困难，先比较两幅都是四块的图，要求学生独立说明为什么只有平均分的图能表示四分之一。再让学生指着整体解释分母，不只重复数字。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "找到一个整体",
+            "确认平均分",
+            "解释其中一份"
+          ]
+        }
+      },
+      {
+        "id": "S07",
+        "activity_id": "A4",
+        "title": "分成四块就是四分之一吗",
+        "points": [
+          "观察四块是不是同样大。",
+          "没有平均分时，不能只凭块数判断。",
+          "先判断条件，再写分数。"
+        ],
+        "teacher_script": "请看这张被分成四块的图，其中有的块大，有的块小。虽然看见了四块，但每份并不同样大，所以不能把其中任意一块称为这个整体的四分之一。请先自己写下判断，再用平均分这个条件向同桌解释。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S08",
+        "activity_id": "A4",
+        "title": "用完整句子解释",
+        "points": [
+          "我把这个整体平均分成了……份。",
+          "其中的一份是它的……分之一。",
+          "请指出句子和图形对应的位置。"
+        ],
+        "teacher_script": "我们用完整句子检查自己的理解。请先指出整个图，再说平均分成了几份，最后指出其中一份。听的同学不要只判断分数读得对不对，还要检查分的份数、平均分条件和所指的小块是否对应。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S09",
+        "activity_id": "A5",
+        "title": "独立完成，再讲理由",
+        "points": [
+          "先完成课堂检测 Q1。",
+          "独立标出整体、等份和其中一份。",
+          "把最不确定的地方圈出来。"
+        ],
+        "teacher_script": "现在请大家独立完成题目，先不与同桌核对。请把整体圈出来，在图上标出平均分的份数，再写其中一份的分数。做完后圈出自己最不确定的地方，老师会根据这些记录安排讲评，而不只看最后的答案。",
+        "question_ids": [
+          "Q1"
+        ],
+        "visual": null
+      },
+      {
+        "id": "S10",
+        "activity_id": "A5",
+        "title": "一起检查典型错误",
+        "points": [
+          "判断错误发生在整体、平均分还是份数。",
+          "用图解释分母的含义。",
+          "修改答案时写出一个理由。"
+        ],
+        "teacher_script": "我们选取一份匿名作答来讨论。请先找出它判断的依据，而不是只说答案错了。如果没有检查平均分，我们就回到每份是否同样大；如果把分母理解成小块的编号，就请指着整个图重新数一数平均分的份数。",
+        "question_ids": [],
+        "visual": null
+      },
+      {
+        "id": "S11",
+        "activity_id": "A6",
+        "title": "今天学会了什么",
+        "points": [
+          "先找整体。",
+          "确认平均分。",
+          "说出其中一份的几分之一。"
+        ],
+        "teacher_script": "请用三个动作整理今天的方法：先找到一个整体，再确认它被平均分，最后说其中一份是它的几分之一。请每位同学给自己画一个简单图，并用一句话说明。老师会留意大家是否真正用图解释，而不只是重复词语。",
+        "question_ids": [],
+        "visual": {
+          "kind": "steps",
+          "labels": [
+            "找到一个整体",
+            "确认平均分",
+            "解释其中一份"
+          ]
+        }
+      },
+      {
+        "id": "S12",
+        "activity_id": "A6",
+        "title": "课后用新图再检查",
+        "points": [
+          "完成课后检测 Q2，并保留解释过程。",
+          "隔几天用 Q3 的新情境复测。",
+          "记录问题，下一次有针对性地练习。"
+        ],
+        "teacher_script": "课后请完成新的图形题，并写出你这样表示的理由。隔几天我们还会用新的情境检查是否仍能独立解释。遇到困难时，请把自己卡住的位置写下来，老师会根据这些反馈调整后面的例子和练习安排。",
+        "question_ids": [
+          "Q2",
+          "Q3"
+        ],
+        "visual": null
+      }
+    ],
+    "questions": [
+      {
+        "id": "Q1",
+        "activity_id": "A5",
+        "goal_ids": [
+          "G1"
+        ],
+        "knowledge_ids": [
+          "K1",
+          "K2"
+        ],
+        "prompt": "一个圆平均分成四份，取出一份。另一圆分成大小不同的四块。哪个图能表示其中一份是原圆的四分之一？说明理由。",
+        "answer": "只有平均分的圆可以；四份必须同样大。",
+        "explanation": "不能只根据块数判断，需要同时核对整体与平均分。",
+        "timing": "in_class",
+        "mode": "objective",
+        "criteria": []
+      },
+      {
+        "id": "Q2",
+        "activity_id": "A6",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K3",
+          "K4"
+        ],
+        "prompt": "用新图独立作答：把一个整体平均分成六份，取其中一份，写出分数并解释每个数字的含义。",
+        "answer": "1/6；6表示平均分成六份，1表示其中一份。",
+        "explanation": "分母表示整体平均分的份数，不是被取走小块的编号。",
+        "timing": "after_class",
+        "mode": "objective",
+        "criteria": []
+      },
+      {
+        "id": "Q3",
+        "activity_id": "A6",
+        "goal_ids": [
+          "G2",
+          "G3"
+        ],
+        "knowledge_ids": [
+          "K3",
+          "K4"
+        ],
+        "prompt": "隔几天再独立作答：把一个整体平均分成八份，指出其中一份，写出分数并解释分母。",
+        "answer": "1/8；8表示整体平均分成八份，需要明确指的是哪一个整体。",
+        "explanation": "使用新情境检查能否独立解释，记录与课堂的时间间隔。",
+        "timing": "delayed",
+        "mode": "objective",
+        "criteria": []
+      }
+    ],
+    "board_design": "一个整体 → 平均分成几份 → 其中的一份 → 几分之一",
+    "source_ids": [],
+    "context_notes": "工程示例，未与具体教材版本对齐；相关学情、教师选择及检测数据均为模拟，不代表真实课堂效果。"
+  },
+  "summary": "依据模拟反馈调整示例、独立检测和环节时间；这是工程演示，不代表真实教师决策。",
+  "change_links": [
+    {
+      "target": "activity:A3",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "activity:A4",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "question:Q2",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    },
+    {
+      "target": "slide:S06",
+      "suggestion_ids": [
+        "assessment_1"
+      ],
+      "explanation": "围绕模拟检测暴露的问题调整，保持核心目标和总课时。"
+    }
+  ]
+}

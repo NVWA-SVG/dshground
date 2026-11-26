@@ -1,0 +1,21 @@
+{
+  "teacher_confirmed": true,
+  "purpose": "same_lesson",
+  "choices": [
+    {
+      "suggestion_id": "assessment_1",
+      "action": "accept",
+      "instructions": "模拟教师选择：补充有针对性的示例与独立检测"
+    }
+  ],
+  "keep_requirements": [
+    "保留核心目标和40分钟课时"
+  ],
+  "protected_ids": [
+    "goal:G1",
+    "goal:G2",
+    "goal:G3"
+  ],
+  "allow_goal_changes": false,
+  "allow_duration_change": false
+}

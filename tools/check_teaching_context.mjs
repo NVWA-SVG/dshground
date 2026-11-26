@@ -1,0 +1,15 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import path from 'node:path';
+import {packVisualContext,estimateTokens} from '../plugins/teacher-workbench/context.mjs';
+import {buildVisualTask} from '../plugins/teacher-workbench/prompts.mjs';
+const root=path.resolve('.'),base=path.join(root,'.test-runs/teaching-preview-evidence');
+const data=JSON.parse(await readFile(path.join(base,'context-input.json'),'utf8'));
+const library=await(await fetch('http://127.0.0.1:3081/teacher/api/knowledge/assets?knowledge=knowledge_489f9220fa7d406e')).json();
+const tuning=await(await fetch('http://127.0.0.1:3081/teacher/api/tuning')).json();
+const input={...data,assets:library.assets,image_generation:{enabled:true,max_images:4}};
+const packed=await packVisualContext(input,data.schema,tuning.config);
+const skill=await readFile(path.join(root,'plugins/teacher-workbench/skills/teacher-ppt/SKILL.md'),'utf8');
+const prompt=await buildVisualTask(packed.data,skill);
+if(packed.data.brief.pages.some(p=>!p.teaching_context||!p.diagram_candidates)||prompt.includes('teacher_script'))throw new Error('Context fields changed unexpectedly');
+const result={passed:true,...packed.report,assembled_user_prompt_estimated_tokens:estimateTokens(prompt),real_api_requests:0};
+await writeFile(path.join(base,'context-report.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({passed:result.passed,input_budget:result.input_budget_tokens,estimated_input:result.estimated_input_tokens,total_assets:result.total_assets,selected_assets:result.selected_assets,real_api_requests:0}));

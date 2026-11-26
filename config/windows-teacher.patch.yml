@@ -1,0 +1,32 @@
+# Isolated Windows teacher deployment; native DSH Creator remains available.
+- id: session-telemetry-otel
+  disabled: true
+- id: product-analytics
+  disabled: true
+- id: session-title-llm
+  disabled: true
+- insert:
+    - id: llm-pi-ai
+      name: '@deepseek-ai/dsh-llm-pi-ai'
+      config:
+        providers:
+          siliconflow:
+            displayName: SiliconFlow Qwen
+            apiKeyEnv: SILICONFLOW_API_KEY
+            api: openai-completions
+            baseURL: https://api.siliconflow.cn/v1
+            # Empty or interrupted tool responses must not silently repeat paid requests.
+            retryPolicy:
+              mode: normal
+              maxRetries: 0
+            streamIdleTimeoutMs: 120000
+            models:
+              - id: Qwen/Qwen3-30B-A3B-Instruct-2507
+                name: Qwen3 30B A3B Instruct
+                contextWindow: 262144
+                maxTokens: 32768
+                reasoningEfforts: false
+                compat:
+                  maxTokensField: max_tokens
+                  supportsStore: false
+                  supportsDeveloperRole: false
